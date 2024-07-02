@@ -1,153 +1,122 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<%@ page import="java.io.BufferedReader" %>
-<%@ page import="java.io.FileReader" %>
-<%@ page import="java.io.IOException" %>
-<%@ page import="classes.Decryted" %>
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Admin Dashboard</title>
+    <title>Panel de Administración</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
     <style>
         body {
-            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
             margin: 0;
             padding: 0;
-            background-color: #f4f4f4;
         }
 
-        .container {
-            width: 80%;
-            margin: auto;
-            overflow: hidden;
-        }
-
-        header {
+        .header {
             background: #333;
             color: #fff;
-            padding: 10px 0;
+            padding: 20px 0;
             text-align: center;
+            background-size: cover;
+            background-position: center;
+        }
+
+        .header h1 {
+            margin: 0;
+            font-size: 2.5em;
+        }
+
+        .nav-container {
+            background: #333;
+        }
+
+        nav {
+            display: flex;
+            justify-content: center;
         }
 
         nav ul {
             padding: 0;
             list-style: none;
-            background: #333;
-            text-align: center;
+            margin: 0;
+            display: flex;
+            justify-content: center;
         }
 
         nav ul li {
-            display: inline;
+            margin: 0 15px;
         }
 
         nav ul li a {
             color: #fff;
             text-decoration: none;
-            padding: 15px 20px;
+            padding: 10px 20px;
             display: inline-block;
+            transition: background 0.3s ease;
         }
 
         nav ul li a:hover {
             background: #575757;
         }
 
-        main {
+        .main-content-container {
+            display: flex;
+            justify-content: center;
+        }
+
+        .main-content {
             background: #fff;
             padding: 20px;
             margin-top: 20px;
             box-shadow: 0 0 10px rgba(0,0,0,0.1);
-        }
-
-        table {
             width: 100%;
-            border-collapse: collapse;
-            margin-bottom: 20px;
+            max-width: 1700px; /* Ajusta este valor según sea necesario */
         }
 
-        table, th, td {
-            border: 1px solid #ddd;
-            padding: 8px;
-        }
+        @media (max-width: 576px) {
+            .header h1 {
+                font-size: 1.5em; /* Reducir el tamaño de la fuente en pantallas pequeñas */
+            }
 
-        th {
-            background-color: #f4f4f4;
-        }
+            nav ul li a {
+                padding: 5px 10px; /* Reducir el padding para que se ajuste mejor en pantallas pequeñas */
+                font-size: 0.9em; /* Reducir el tamaño de la fuente en pantallas pequeñas */
+            }
 
-        tbody tr:nth-child(even) {
-            background-color: #f9f9f9;
+            .main-content {
+                padding: 10px; /* Reducir el padding del contenido principal en pantallas pequeñas */
+            }
         }
     </style>
 </head>
 <body>
-    <div class="container">
-        <header>
-            <h1>Admin Dashboard</h1>
+    <div class="container-fluid p-0">
+        <header class="header">
+            <h1>Panel de Administración</h1>
         </header>
-        <nav>
-            <ul>
-                <li><a href="#usuarios">Usuarios</a></li>
-                <li><a href="#inscripciones">Inscripciones</a></li>
-                <li><a href="#solicitudes">Solicitudes</a></li>
-            </ul>
-        </nav>
-        <main>
-            <section id="usuarios">
-                <h2>Usuarios Registrados</h2>
-                <table>
-                    <thead>
-                        <tr>
-                            <th>Nombre completo</th>
-                            <th>Nombre usuario</th>
-                            <th>Email</th>
-                            <th>Contraseña</th>
-                            <th>Rol</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <%
-                            String filePath = "C:\\Users\\Jordy vindas\\OneDrive - Universidad de Costa Rica\\Documentos\\NetBeansProjects\\SimposioUcr\\register.txt";
-                            BufferedReader br = null;
-                            Decryted decrypter = new Decryted();
-                            try {
-                                br = new BufferedReader(new FileReader(filePath));
-                                String line;
-                                while ((line = br.readLine()) != null) {
-                                    String[] encryptedData = line.split(",");
-                                    String[] data = new String[encryptedData.length];
-                                    for (int i = 0; i < encryptedData.length; i++) {
-                                        data[i] = decrypter.decrypt(encryptedData[i]);
-                                    }
-                                    %>
-                                    <tr>
-                                        <td><%= data[0] %></td>
-                                        <td><%= data[1] %></td>
-                                        <td><%= data[2] %></td>
-                                        <td><%= data[3] %></td>
-                                        <td><%= data[4] %></td>
-                                    </tr>
-                                    <%
-                                }
-                            } catch (IOException e) {
-                                e.printStackTrace();
-                            } catch (Exception e) {
-                                e.printStackTrace();
-                            } finally {
-                                if (br != null) {
-                                    try {
-                                        br.close();
-                                    } catch (IOException e) {
-                                        e.printStackTrace();
-                                    }
-                                }
-                            }
-                        %>
-                    </tbody>
-                </table>
-            </section>
-       
-        </main>
+        <div class="nav-container">
+            <nav>
+                <ul>
+                    <li><a href="users.jsp">Usuarios Registrados</a></li>
+                    <li><a href="inscripciones.jsp">Inscripciones</a></li>
+                    <li><a href="Request.jsp">Solicitudes</a></li>
+                    <!-- Agrega más opciones de navegación si es necesario -->
+                </ul>
+            </nav>
+        </div>
+        <div class="main-content-container">
+            <div class="main-content">
+                <h2>Bienvenido al Panel de Administración</h2>
+                <p>Aquí puedes gestionar usuarios registrados, inscripciones y solicitudes para el Simposio.</p>
+                <p>Explora las opciones de navegación para acceder a cada sección.</p>
+            </div>
+        </div>
     </div>
+    <!-- Bootstrap JS y dependencias opcionales -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js" integrity="sha384-XlFZrj2wA6p4A9Zy6UQ6p/x2RdHGUMFyFG5j5NKnusqsg7l5Fv5zOVIdB4VZVVCk" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4Ag6+LS6S/Ws3MnQ4t9T2KtxjtB3r08Z1p/erw68pT5FhBW8M2kr" crossorigin="anonymous"></script>
 </body>
 </html>
-
