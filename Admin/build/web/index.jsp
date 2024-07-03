@@ -99,9 +99,9 @@
         <div class="nav-container">
             <nav>
                 <ul>
-                    <li><a href="users.jsp">Usuarios Registrados</a></li>
-                    <li><a href="inscripciones.jsp">Inscripciones</a></li>
+                    <li><a href="users.jsp">Usuarios Registrados</a></li>               
                     <li><a href="Request.jsp">Solicitudes</a></li>
+                    <li><a href="inscripciones.jsp">Inscripciones</a></li>
                     <!-- Agrega más opciones de navegación si es necesario -->
                 </ul>
             </nav>
@@ -114,9 +114,6 @@
             </div>
         </div>
     </div>
-    <!-- Bootstrap JS y dependencias opcionales -->
-    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js" integrity="sha384-XlFZrj2wA6p4A9Zy6UQ6p/x2RdHGUMFyFG5j5NKnusqsg7l5Fv5zOVIdB4VZVVCk" crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4Ag6+LS6S/Ws3MnQ4t9T2KtxjtB3r08Z1p/erw68pT5FhBW8M2kr" crossorigin="anonymous"></script>
+    
 </body>
 </html>

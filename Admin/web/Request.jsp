@@ -1,7 +1,10 @@
-<<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ page import="java.util.List" %>
-<%@ page import="Arbol.Tree" %>
-<%@ page import="Arbol.Solic" %>
+<%@ page import="java.nio.charset.StandardCharsets" %>
+<%@ page import="java.nio.file.Files" %>
+<%@ page import="java.nio.file.Paths" %>
+<%@ page import="java.io.IOException" %>
+<%@ page import="java.util.Base64" %>
 <%@ page import="classes.Decryted" %>
 <!DOCTYPE html>
 <html lang="es">
@@ -95,8 +98,7 @@
             <ul>
                 <li><a href="index.jsp">Inicio</a></li>
                 <li><a href="users.jsp">Usuarios Registrados</a></li>
-                <li><a href="inscripciones.jsp">Inscripciones</a></li>
-                <li><a href="solicitudes.jsp">Solicitudes</a></li>
+                <li><a href="inscripciones.jsp">Inscripciones</a></li>      
                 <!-- Agrega más opciones de navegación si es necesario -->
             </ul>
         </nav>
@@ -112,28 +114,27 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <%
-                        String filePath = "C:\\Users\\Jordy vindas\\OneDrive - Universidad de Costa Rica\\Documentos\\NetBeansProjects\\SimposioUcr\\request.txt";
-                        Tree tree = new Tree();
-                        Decryted decrypter = new Decryted();
-
-                        // Leer y desencriptar los datos del archivo
-                        tree.readSolicFromFileAndDecrypt(filePath, decrypter);
-
-                        // Obtener la lista de solicitudes ordenadas alfabéticamente
-                        List<Solic> solicList = tree.getAllSolicOrderedByName();
-
-                        // Iterar sobre la lista de solicitudes para mostrarlas en la tabla
-                        for (Solic solic : solicList) {
-                    %>
-                        <tr>
-                            <td><%= solic.getFullName() %></td>
-                            <td><%= solic.getEmail() %></td>
-                            <td><%= solic.getPhoneNumber() %></td>
-                            <td><%= solic.getMessage() %></td>
-                        </tr>
                     <% 
-                        } 
+                        String filePath = "C:\\Users\\Jordy vindas\\OneDrive - Universidad de Costa Rica\\Documentos\\NetBeansProjects\\SimposioUcr\\request.txt";
+                        try {
+                            List<String> lines = Files.readAllLines(Paths.get(filePath), StandardCharsets.UTF_8);
+                            Decryted decryted = new Decryted();
+                            for (String line : lines) {
+                                String[] parts = line.split(","); // Suponiendo que los datos están separados por comas
+                    %>
+                                <tr>
+                                    <td><%= decryted.decrypt(parts[0]) %></td>
+                                    <td><%= decryted.decrypt(parts[1]) %></td>
+                                    <td><%= decryted.decrypt(parts[2]) %></td>
+                                    <td><%= decryted.decrypt(parts[3]) %></td>
+                                </tr>
+                    <% 
+                            }
+                        } catch (IOException e) {
+                            e.printStackTrace();
+                        } catch (Exception e) {
+                            e.printStackTrace();
+                        }
                     %>
                 </tbody>
             </table>
