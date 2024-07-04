@@ -12,7 +12,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class EventManager {
-    private static final String FILE_PATH = "C:\\Users\\chiul\\Documents\\Manu\\SimposioUcr\\SimposioUcr\\web\\WEB-INF\\events.txt";
+    private static final String FILE_PATH = "C://Users//Jordy vindas//OneDrive - Universidad de Costa Rica//Documentos//NetBeansProjects//SimposioUcr//web//WEB-INF//events.txt/";
 
     public List<String[]> getEvents() throws IOException {
         List<String[]> events = new ArrayList<>();

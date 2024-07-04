@@ -153,7 +153,7 @@
             <ul>
                 <li><a href="index.jsp">Inicio</a></li>
                 <li><a href="users.jsp">Usuarios Registrados</a></li>
-                <li><a href="inscripciones.jsp">Inscripciones</a></li>
+                <li><a href="Inscriptions.jsp">Inscripciones</a></li>
                 <!-- Agrega más opciones de navegación si es necesario -->
             </ul>
         </nav>
