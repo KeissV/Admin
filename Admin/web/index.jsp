@@ -68,7 +68,7 @@
         }
 
         nav ul li a:hover {
-            background: #00509E; /* Un tono más claro del color oficial */
+            background: #00509E; 
         }
 
         .main-content-container {
@@ -82,49 +82,49 @@
             padding: 20px;
             box-shadow: 0 0 10px rgba(0,0,0,0.1);
             width: 100%;
-            max-width: 800px; /* Limitar el ancho máximo del contenido para evitar que se extienda demasiado en pantallas grandes */
+            max-width: 800px; 
         }
 
         @media (max-width: 992px) {
             .header h4{
-                font-size: 1.5em; /* Reducir el tamaño de la fuente en pantallas medianas */
+                font-size: 1.5em; 
             }
 
             .header img {
-                width: 60px; /* Reducir el tamaño del logo en pantallas medianas */
+                width: 60px; 
             }
 
             nav ul li {
-                margin: 10px; /* Aumentar el espacio entre elementos de lista en pantallas medianas */
+                margin: 10px; 
             }
         }
 
         @media (max-width: 768px) {
             .header h4 {
-                font-size: 1.2em; /* Reducir el tamaño de la fuente en pantallas pequeñas */
+                font-size: 1.2em; 
             }
 
             .header img {
-                width: 50px; /* Reducir el tamaño del logo en pantallas pequeñas */
+                width: 50px; 
             }
 
             nav ul {
-                flex-direction: column; /* Cambiar a disposición vertical en pantallas pequeñas */
-                align-items: center; /* Centrar elementos en pantallas pequeñas */
+                flex-direction: column; 
+                align-items: center; 
             }
 
             nav ul li {
-                margin: 8px 0; /* Aumentar el espacio entre elementos de lista en pantallas pequeñas */
+                margin: 8px 0; 
             }
 
             nav ul li a {
-                padding: 8px 12px; /* Reducir el padding de los enlaces en pantallas pequeñas */
-                font-size: 0.9em; /* Reducir el tamaño de la fuente en pantallas pequeñas */
+                padding: 8px 12px; 
+                font-size: 0.9em; 
             }
         }
 
         .footer {
-            background: #0033A0; /* Color oficial de la UCR */
+            background: #0033A0; 
             color: #fff;
             text-align: center;
             padding: 10px 0;
