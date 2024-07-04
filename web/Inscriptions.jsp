@@ -47,6 +47,11 @@
                 %>
             </tbody>
         </table>
+        <div class="text-center mt-4">
+            <form action="index.jsp" method="get">
+                <button type="submit" class="btn btn-primary">Volver</button>
+            </form>
+        </div>
     </div>
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>

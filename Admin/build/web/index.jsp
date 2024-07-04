@@ -145,6 +145,7 @@
                     <li class="nav-item"><a class="nav-link" href="users.jsp">Usuarios Registrados</a></li>               
                     <li class="nav-item"><a class="nav-link" href="Request.jsp">Solicitudes</a></li>
                     <li class="nav-item"><a class="nav-link" href="inscripciones.jsp">Inscripciones</a></li>
+                    <li class="nav-item"><a class="nav-link" href="editEvents.jsp">Eventos</a></li>
                     <!-- Agrega más opciones de navegación si es necesario -->
                 </ul>
             </nav>
